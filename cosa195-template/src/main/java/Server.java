@@ -14,5 +14,8 @@ public class Server {
                 .start(7070);
         app.get("/aircrafts",
                 AirCraftServiceController.fetchAllAirCrafts);
+        app.get("/aircrafts/{country}",
+                AirCraftServiceController.fetchAllAirCraftsinaCountryHandler);
+        app.post("/aircrafts",AirCraftServiceController.postAirCraftpostAirCraft);
     }
 }

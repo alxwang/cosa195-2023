@@ -1,5 +1,8 @@
 package DataObject;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.io.Serializable;
 
 public class AirCraft implements Serializable {
@@ -27,7 +30,18 @@ public class AirCraft implements Serializable {
         return country;
     }
 
-    public AirCraft(int id, int year,String name,String country)
+
+//    {
+//        "id": 2,
+//            "year": 1942,
+//            "name": "Ambrosini SAI.207",
+//            "country": "Italy"
+//    },
+    @JsonCreator
+    public AirCraft(@JsonProperty("id") int id,
+                    @JsonProperty("year") int year,
+                    @JsonProperty("name") String name,
+                    @JsonProperty("country") String country)
     {
         this.id=id;
         this.year=year;
