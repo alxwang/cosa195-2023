@@ -22,8 +22,14 @@ public class AirCraftServiceController {
         ctx.json(list);
     };
 
+    public static Handler deleteAirCraft = ctx->{
+        int id = Integer.parseInt(Objects.requireNonNull(ctx.pathParam("id")));
+        System.out.println(id);
+        AirCraftDAO.delAirCraft(id);
+    };
 
-    public  static  Handler postAirCraftpostAirCraft  = ctx->{
+
+    public  static  Handler postorputAirCraftpostAirCraft  = ctx->{
         AirCraft airCraft = ctx.bodyAsClass(AirCraft.class);
         AirCraftDAO.addAirCraft(airCraft);
     };
